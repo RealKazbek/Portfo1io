@@ -40,7 +40,7 @@ const Profile = () => {
   return (
     <div className="relative flex justify-center">
       <PixelImage
-        src="/profile.webp"
+        src="/portfolio-kazbek.webp"
         customGrid={{ rows: 12, cols: 8 }}
         grayscaleAnimation={true}
       />

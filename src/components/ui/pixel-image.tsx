@@ -133,7 +133,7 @@ export const PixelImage = ({
               src={src}
               alt={`Pixel image piece ${index + 1}`}
               className={cn(
-                "size-full object-cover rounded-xl",
+                "size-full rounded-xl object-cover object-center",
                 grayscaleAnimation && (showColor ? "grayscale-0" : "grayscale"),
               )}
               style={{
