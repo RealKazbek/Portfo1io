@@ -54,14 +54,14 @@ const Profile = () => {
 
       <div className="absolute top-[120px] right-[5px] md:top-[165px] md:right-[40px]">
         <span className="-mb-2 ml-7 block w-fit -rotate-2 rounded bg-slate-200 px-1.5 py-0.5 text-xs text-black shadow">
-          Resilience
+          Logic
         </span>
         <ArrowIcon className="w-18 scale-x-[-1] -rotate-180 md:w-20" />
       </div>
 
-      <div className="absolute top-[50px] right-[5px] md:top-[80px] md:right-[40px]">
+      <div className="absolute top-[50px] right-[5px] md:top-[72px] md:right-[40px]">
         <span className="-mb-2 ml-10 block w-fit -rotate-2 rounded bg-slate-200 px-1.5 py-0.5 text-xs text-black shadow">
-          Vision
+          Build
         </span>
         <ArrowIcon className="w-18 scale-x-[-1] -rotate-180 md:w-20" />
       </div>

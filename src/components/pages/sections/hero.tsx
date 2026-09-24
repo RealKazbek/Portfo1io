@@ -36,7 +36,7 @@ const Hero = () => {
           </motion.div>
 
           {/* Text Content */}
-          <div className="md:flex-1">
+          <div className="md:flex-1 md:-translate-y-4">
             {/* Status Badge */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}

@@ -74,9 +74,9 @@ const About = () => {
                 <div className="text-center">
                   <div className="border-foreground/20 bg-muted/20 mb-4 overflow-hidden rounded-lg border-2 border-dashed p-4">
                     <img
-                      src="/ascii-art-profile.png"
-                      alt="ASCII"
-                      className="-mb-5 h-auto w-full object-cover object-center dark:invert"
+                      src="/portfolio-kazbek.webp"
+                      alt="Kazbek profile"
+                      className="-mb-5 h-auto w-full object-cover object-center grayscale contrast-[1.35] brightness-[0.65] saturate-0 opacity-[0.9] mix-blend-luminosity"
                     />
                   </div>
                   <h3 className="font-incognito text-2xl font-semibold">
