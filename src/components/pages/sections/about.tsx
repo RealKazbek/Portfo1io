@@ -30,79 +30,10 @@ const About = () => {
 
           <div className="text-foreground/70 bg-muted/20 relative z-10 mx-auto mt-6 max-w-3xl rounded-lg border-2 border-dotted text-sm leading-relaxed backdrop-blur-3xl md:text-base">
             <div className="p-6">
-              <p className="">
-                I build fast, friendly products that make users smile
-                <span className="mx-1 inline-block align-middle">
-                  <span className="ring-offset-background relative inline-block w-12 rotate-6 overflow-hidden rounded-md ring ring-offset-2">
-                    <img
-                      src={"/gifs/kawaii%20cat%20GIF.gif"}
-                      className="h-auto w-full object-cover object-center"
-                      alt="kawaii cat cheering"
-                    />
-                  </span>
-                </span>
-                —and sometimes their dogs too.
-              </p>
-
-              <p className="">
-                Stack: Next.js, React, TypeScript, Tailwind. Clean APIs, tiny
-                micro‑interactions, big delight
-                <span className="mx-1 inline-block align-middle">
-                  <span className="ring-offset-background relative inline-block w-12 -rotate-3 overflow-hidden rounded-md ring ring-offset-2">
-                    <img
-                      src={"/gifs/cate%20coding.gif"}
-                      className="max-h-8 w-full object-cover object-center"
-                      alt="cat intensely coding"
-                    />
-                  </span>
-                </span>
-                .
-              </p>
-
-              <p className="">
-                Off‑duty: coffee, sketching animations, and One Piece marathons
-                <span className="mx-1 inline-block align-middle">
-                  <span className="ring-offset-background relative inline-block w-12 rotate-3 overflow-hidden rounded-md ring ring-offset-2">
-                    <img
-                      src={"/gifs/happy%20one%20piece%20GIF.gif"}
-                      className="h-auto w-full object-cover object-center"
-                      alt="happy One Piece vibe"
-                    />
-                  </span>
-                </span>
-                .
-              </p>
-
-              <p className="">
-                Best in small teams: quick loops, clear comms, high‑fives after
-                deploy
-                <span className="mx-1 inline-block align-middle">
-                  <span className="ring-offset-background relative inline-block w-12 -rotate-2 overflow-hidden rounded-md ring ring-offset-2">
-                    <img
-                      src={
-                        "/gifs/One%20Piece%20GIF%20by%20TOEI%20Animation%20UK.gif"
-                      }
-                      className="h-auto w-full object-cover object-center"
-                      alt="One Piece crew teamwork"
-                    />
-                  </span>
-                </span>
-                .
-              </p>
-
-              <p>
-                Got a messy brief or a half‑baked idea?
-                <span className="mx-1 inline-block align-middle">
-                  <span className="ring-offset-background relative inline-block w-12 rotate-2 overflow-hidden rounded-md ring ring-offset-2">
-                    <img
-                      src={"/gifs/kirby%20confused.gif"}
-                      className="h-auto w-full object-cover object-center"
-                      alt="kirby confused but ready"
-                    />
-                  </span>
-                </span>
-                Let’s turn it into something real.
-              </p>
+              <p>I am a full-stack developer from Kazakhstan focused on building practical web products.</p>
+              <p>I work with Next.js, React, TypeScript, FastAPI, PostgreSQL, and Docker to build reliable interfaces, APIs, and backend systems.</p>
+              <p>I am interested in product development, automation, scalable web applications, and Telegram solutions for businesses.</p>
+              <p>I am available for freelance projects and MVP development.</p>
             </div>
 
             <div className="border-t-2 border-dotted p-6">
@@ -149,10 +80,10 @@ const About = () => {
                     />
                   </div>
                   <h3 className="font-incognito text-2xl font-semibold">
-                    Siddharth
+                    Kazbek
                   </h3>
                   <p className="text-foreground/60 mt-1 font-mono text-sm">
-                    @stark
+                    Full-Stack Developer
                   </p>
 
                   {/* Status badges */}
@@ -176,7 +107,6 @@ const About = () => {
                         ? "Not Available"
                         : "Available"}
                     </Badge>
-                    <Badge variant="outline">2+ Years</Badge>
                     <Badge variant="outline">Full-Stack</Badge>
                   </div>
                 </div>

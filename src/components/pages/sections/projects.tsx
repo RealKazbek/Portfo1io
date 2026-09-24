@@ -4,7 +4,6 @@ import SectionHeading from "@/components/section-heading";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import HeadingLine from "@/components/ui/heading-line";
-import env from "@/config/env";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { Github, ArrowUpRight, ExternalLink } from "lucide-react";
@@ -13,48 +12,53 @@ import { motion } from "motion/react";
 const Projects = () => {
   const projects = [
     {
-      title: "Developer Portfolio",
-      description:
-        "A personal portfolio website showcasing projects, skills, and contact information.",
-      tags: ["Portfolio", "Fullstack", "Personal"],
-      github: "https://github.com/NotStark/portfolio",
-      image: "/projects/portfolio-screenshot.png",
-      live: env.NEXT_PUBLIC_APP_URL,
-      date: "Sep, 2025",
-      status: "completed",
-    },
-    {
-      title: "Telegram Bot",
-      description: "A telegram group management bot built with Pyrogram.",
-      tags: ["Bot", "Management", "Telegram"],
-      github: "https://github.com/Notstark/TelegramBot",
-      image: "/projects/telegrambot-screenshot.png",
-      live: "https://t.me/HyugaGuardianBot",
-      date: "Oct, 2024",
-      status: "completed",
-    },
-    {
-      title: "Anime Edge",
-      description:
-        "A feature-rich anime streaming platform built with Next.js, offering fast search, curated collections, and a smooth viewing experience.",
-      tags: ["Anime", "Streaming", "Fullstack"],
-      github: null,
-      image: "/projects/animeedge-screenshot.png",
+      title: "Pixel Lane",
+      description: "Smart-city traffic management and road infrastructure modeling platform with a 2D city editor, traffic simulation, lane modeling, intersections, and digital twin concepts.",
+      tags: ["Next.js", "FastAPI", "MapLibre"],
+      github: "https://github.com/RealKazbek/Pixel-Lane",
+      image: "/projects/pixel-lane.png",
       live: null,
-      date: "Dec, 2024",
-      status: "completed",
+      date: "In Development",
+      status: "In Development",
+    },
+    {
+      title: "NextTrade",
+      description: "Full-stack trading platform with authentication, backend APIs, PostgreSQL, and a modern web interface.",
+      tags: ["Next.js", "FastAPI", "PostgreSQL"],
+      github: "https://github.com/RealKazbek/NextTrade",
+      image: "/projects/nexttrade.png",
+      live: null,
+      date: "In Development",
+      status: "In Development",
+    },
+    {
+      title: "Business CRM",
+      description: "CRM system for managing leads, clients, tasks, statuses, and business workflows.",
+      tags: ["Next.js", "FastAPI", "PostgreSQL"],
+      github: null,
+      image: "/projects/crm.png",
+      live: null,
+      date: "Coming Soon",
+      status: "Coming Soon",
+    },
+    {
+      title: "Telegram Business System",
+      description: "Telegram bot integrated with a web admin panel for handling orders, notifications, and customer workflows.",
+      tags: ["Telegram Bot", "FastAPI", "PostgreSQL"],
+      github: null,
+      image: "/projects/telegram-business.png",
+      live: null,
+      date: "Coming Soon",
+      status: "Coming Soon",
     },
   ];
 
   const tagColors = {
-    Portfolio: "bg-blue-500/10 text-blue-600 border-blue-500/30",
-    Fullstack: "bg-orange-500/10 text-orange-600 border-orange-500/30",
-    Personal: "bg-purple-500/10 text-purple-600 border-purple-500/30",
-    Telegram: "bg-cyan-500/10 text-cyan-600 border-cyan-500/30",
-    Management: "bg-emerald-500/10 text-emerald-600 border-emerald-500/30",
-    Bot: "bg-teal-500/10 text-teal-600 border-teal-500/30",
-    Anime: "bg-pink-500/10 text-pink-600 border-pink-500/30",
-    Streaming: "bg-indigo-500/10 text-indigo-600 border-indigo-500/30",
+    "Next.js": "bg-blue-500/10 text-blue-600 border-blue-500/30",
+    FastAPI: "bg-emerald-500/10 text-emerald-600 border-emerald-500/30",
+    MapLibre: "bg-purple-500/10 text-purple-600 border-purple-500/30",
+    PostgreSQL: "bg-cyan-500/10 text-cyan-600 border-cyan-500/30",
+    "Telegram Bot": "bg-teal-500/10 text-teal-600 border-teal-500/30",
   };
 
   return (

@@ -2,21 +2,13 @@
 
 import Profile from "@/components/profile";
 import { Button } from "@/components/ui/button";
-import { NumberTicker } from "@/components/ui/number-ticker";
 import { Typewriter } from "@/components/ui/typewriter";
-import { clientApi } from "@/lib/client-api";
 import { cn } from "@/lib/utils";
-import { useQuery } from "@tanstack/react-query";
-import { ArrowDownSquareIcon, ArrowUpRight, Download } from "lucide-react";
+import { ArrowDownSquareIcon, ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
 
 const Hero = () => {
-  const { data: umamiStats } = useQuery({
-    queryKey: ["pageViews"],
-    queryFn: clientApi.views.getStats,
-  });
-
   return (
     <div className="relative flex flex-col justify-center overflow-hidden border-b pt-12">
       <div className="px-4 pb-6 md:px-8 md:pb-14 lg:px-20">
@@ -73,7 +65,7 @@ const Hero = () => {
               <span className="text-foreground">Hey, I&apos;m </span>
               <span className="relative text-[#8cc2ff] italic">
                 <Typewriter
-                  text={["Siddharth", "Stark"]}
+                  text={["Kazbek"]}
                   speed={85}
                   waitTime={1500}
                   deleteSpeed={40}
@@ -89,8 +81,7 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-foreground/60 max-w-2xl text-sm font-light md:text-base"
             >
-              Fullstack developer with a passion for building web applications.
-              I specialize in React, Next.js, Node.js, and TypeScript.
+              I build web applications, CRM systems, MVPs, and Telegram solutions for businesses using Next.js, React, FastAPI, PostgreSQL, and Docker.
             </motion.p>
 
             <motion.div
@@ -105,7 +96,7 @@ const Hero = () => {
                 className="group/btn border-2 font-medium"
               >
                 <a href={"#contact"}>
-                  Lets Connect
+                  Contact Me
                   <ArrowUpRight className="ml-1 h-3 w-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
                 </a>
               </Button>
@@ -115,10 +106,7 @@ const Hero = () => {
                 size="lg"
                 className="group/btn border-2 font-medium"
               >
-                <Link href={"/resume.pdf"}>
-                  <Download className="size-4 transition-transform group-hover/btn:translate-y-0.5" />
-                  Download resume
-                </Link>
+                <Link href="#projects">View Projects</Link>
               </Button>
             </motion.div>
           </div>
@@ -128,15 +116,7 @@ const Hero = () => {
       {/*  Stats Grid */}
       <div className="relative">
         <div className="grid grid-cols-2 border md:max-w-3/4 md:border-0 md:border-t md:border-r lg:grid-cols-4">
-          {[
-            {
-              label: "Portfolio views",
-              value: umamiStats?.data?.pageviews ?? 0,
-            },
-            { label: "Years of Experience", value: 2 },
-            { label: "Projects Shipped", value: 8 },
-            { label: "Happy Clients", value: 5 },
-          ].map((stat, i) => (
+          {["Full-Stack Development", "Web Applications", "Telegram Solutions", "Available for Freelance"].map((label, i) => (
             <div
               key={i}
               className={cn(
@@ -146,10 +126,7 @@ const Hero = () => {
               )}
             >
               <div className="text-foreground mb-2 text-3xl font-bold">
-                <NumberTicker value={stat.value} />+
-              </div>
-              <div className="text-foreground/50 font-mono text-xs tracking-wider uppercase">
-                {stat.label}
+                <span className="text-foreground text-xl font-bold">{label}</span>
               </div>
             </div>
           ))}

@@ -1,7 +1,7 @@
 "use client";
 
 import { Logo } from "@/components/ui/logo";
-import { Github, Heart, Linkedin, Mail, Twitter } from "lucide-react";
+import { Github, Heart, Mail, Send } from "lucide-react";
 import dayjs from "dayjs";
 import { motion } from "motion/react";
 import { siteConfig } from "@/config/site";
@@ -13,16 +13,7 @@ const Footer = () => {
       href: siteConfig.github,
       label: "GitHub",
     },
-    {
-      icon: Linkedin,
-      href: siteConfig.linkedin,
-      label: "LinkedIn",
-    },
-    {
-      icon: Twitter,
-      href: siteConfig.twitter,
-      label: "X (Twitter)",
-    },
+    { icon: Send, href: siteConfig.telegram, label: "Telegram" },
     {
       icon: Mail,
       href: `mailto:${siteConfig.email}`,
@@ -36,7 +27,7 @@ const Footer = () => {
        
         <div className="inline-flex items-center gap-2">
           <Logo className="w-10" />
-          <span>© {dayjs().year()} Siddharth. All rights reserved.</span>
+          <span>© {dayjs().year()} Kazbek. All rights reserved.</span>
         </div>
 
         <motion.div

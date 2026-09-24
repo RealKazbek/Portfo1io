@@ -16,18 +16,16 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   metadataBase: new URL(siteConfig.url),
   keywords: [
-    "portfolio",
-    "developer portfolio",
-    "creative",
-    "fullstack",
-    "nextjs",
+    "Full-Stack Developer", "Next.js Developer", "React Developer",
+    "FastAPI Developer", "Web Developer Kazakhstan", "CRM Development",
+    "Telegram Bot Development", "MVP Development",
   ],
 
   openGraph: {
     images: [
       {
         url: "/og-image.png",
-        alt: "Stark's Portfolio",
+        alt: "Kazbek — Full-Stack Developer",
       },
     ],
   },

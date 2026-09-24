@@ -115,7 +115,7 @@ export default function Contact() {
                       <span className="text-sky-400">↪</span>
                       <input
                         type="text"
-                        placeholder="Siddharth"
+                        placeholder="Your name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         onKeyDown={handleEnter}
@@ -197,6 +197,11 @@ export default function Contact() {
             </Terminal>
           </form>
         </div>
+      </div>
+      <div className="relative z-10 mx-auto mt-8 flex max-w-5xl flex-wrap items-center justify-center gap-4 text-sm">
+        <a className="border px-4 py-2 hover:bg-muted" href={siteConfig.telegram} target="_blank" rel="noreferrer">Contact me on Telegram</a>
+        <a className="border px-4 py-2 hover:bg-muted" href={siteConfig.github} target="_blank" rel="noreferrer">GitHub</a>
+        <a className="border px-4 py-2 hover:bg-muted" href={`mailto:${siteConfig.email}`}>Email</a>
       </div>
     </SectionHeading>
   );
