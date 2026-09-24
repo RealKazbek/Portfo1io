@@ -41,7 +41,7 @@ export function Animation({
   const perPath = total > 0 ? Math.max(0, animationTime) / total : 0;
 
   const totalLoops = useMemo(() => {
-    if (loop === true) return Infinity;
+    if (loop === true) return 1;
     if (typeof loop === "number") return Math.max(1, Math.floor(loop));
     return 1;
   }, [loop]);
@@ -93,7 +93,9 @@ export function Animation({
   useEffect(() => {
     if (initialAnimation) startAnimation();
     else controls.set("visible");
-  }, [controls, initialAnimation, startAnimation]);
+    // The reveal belongs to the mount lifecycle; state changes must not restart it.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div
