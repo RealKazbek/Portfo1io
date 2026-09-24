@@ -26,7 +26,7 @@ export const IntroSplash = () => {
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
       >
-        <Logo className="w-28 sm:w-32 md:w-40 @max-md:w-16" />
+        <Logo className="w-28 text-4xl sm:w-32 sm:text-5xl md:w-40 md:text-6xl @max-md:w-16" />
       </motion.div>
 
 
