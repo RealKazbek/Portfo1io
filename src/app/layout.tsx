@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   title: siteConfig.title,
   description: siteConfig.description,
   metadataBase: new URL(siteConfig.url),
+  alternates: {
+    canonical: "/",
+  },
   keywords: [
     "Full-Stack Developer", "Next.js Developer", "React Developer",
     "FastAPI Developer", "Web Developer Kazakhstan", "CRM Development",
@@ -22,6 +25,9 @@ export const metadata: Metadata = {
   ],
 
   openGraph: {
+    url: siteConfig.url,
+    siteName: "Kazbek — Full-Stack Developer",
+    type: "website",
     images: [
       {
         url: "/og-image.png",

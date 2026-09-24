@@ -7,7 +7,7 @@ import env from '@/config/env';
 import axios from 'axios';
 
 
-export const revalidate = 604800
+export const dynamic = "force-dynamic";
 
 
 class GitHubStatsCalculator {

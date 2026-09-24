@@ -15,7 +15,7 @@ const env = createEnv({
     GOOGLE_CLIENT_ID: z.string().min(1).optional(),
     GOOGLE_CLIENT_SECRET: z.string().min(1).optional(),
     BETTER_AUTH_SECRET: z.string().min(1).optional(),
-    BETTER_AUTH_URL: z.url().default("http://localhost:3000"),
+    BETTER_AUTH_URL: z.url().default("https://realkazbek.site"),
     UMAMI_API_KEY: z.string().min(1).optional(),
     GITHUB_TOKEN: z.string().min(1).optional(),
   },
@@ -25,7 +25,7 @@ const env = createEnv({
    * 💡 You'll get type errors if these are not prefixed with NEXT_PUBLIC_.
    */
   client: {
-    NEXT_PUBLIC_APP_URL: z.url().default("http://localhost:3000"),
+    NEXT_PUBLIC_APP_URL: z.url().default("https://realkazbek.site"),
     NEXT_PUBLIC_GITHUB_USERNAME: z.string().min(1),
     NEXT_PUBLIC_AVAILABLE_STATUS: z.coerce.boolean(),
     NEXT_PUBLIC_UMAMI_WEBSITE_ID: z.string().min(1).optional(),
