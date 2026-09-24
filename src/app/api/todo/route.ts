@@ -1,11 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
-import { auth } from "@/lib/auth";
-import prisma from "@/lib/prisma";
+import env from "@/config/env";
+
+const backendUnavailable = () =>
+    NextResponse.json({ success: false, message: "Todo is not configured" }, { status: 503 });
 
 
 //  Fetch all todos
 export async function GET() {
+    if (!env.DATABASE_URL) return backendUnavailable();
+
     try {
+        const { default: prisma } = await import("@/lib/prisma");
         const todos = await prisma.todo.findMany({
             orderBy: { createdAt: "asc" },
         });
@@ -22,7 +27,13 @@ export async function GET() {
 
 //  Create new todo
 export async function POST(req: NextRequest) {
+    if (!env.DATABASE_URL) return backendUnavailable();
+
     try {
+        const [{ default: prisma }, { auth }] = await Promise.all([
+            import("@/lib/prisma"),
+            import("@/lib/auth"),
+        ]);
         const session = await auth.api.getSession({
             headers: req.headers,
         });
@@ -60,7 +71,13 @@ export async function POST(req: NextRequest) {
 
 //  Update todo
 export async function PATCH(req: NextRequest) {
+    if (!env.DATABASE_URL) return backendUnavailable();
+
     try {
+        const [{ default: prisma }, { auth }] = await Promise.all([
+            import("@/lib/prisma"),
+            import("@/lib/auth"),
+        ]);
         const session = await auth.api.getSession({
             headers: req.headers,
         });
@@ -97,7 +114,13 @@ export async function PATCH(req: NextRequest) {
 
 // Delete todo 
 export async function DELETE(req: NextRequest) {
+    if (!env.DATABASE_URL) return backendUnavailable();
+
     try {
+        const [{ default: prisma }, { auth }] = await Promise.all([
+            import("@/lib/prisma"),
+            import("@/lib/auth"),
+        ]);
         const session = await auth.api.getSession({
             headers: req.headers,
         });

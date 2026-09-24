@@ -1,11 +1,16 @@
 import { NextResponse } from "next/server";
-import prisma from "@/lib/prisma";
-import { auth } from "@/lib/auth";
+import env from "@/config/env";
+
+const backendUnavailable = () =>
+    NextResponse.json({ success: false, message: "Guestbook is not configured" }, { status: 503 });
 
 
 // List all guestbook entries
 export async function GET() {
+    if (!env.DATABASE_URL) return backendUnavailable();
+
     try {
+        const { default: prisma } = await import("@/lib/prisma");
         const entries = await prisma.guestbookEntry.findMany({
             include: {
                 user: {
@@ -36,7 +41,13 @@ export async function GET() {
 
 // Add a new entry
 export async function POST(req: Request) {
+    if (!env.DATABASE_URL) return backendUnavailable();
+
     try {
+        const [{ default: prisma }, { auth }] = await Promise.all([
+            import("@/lib/prisma"),
+            import("@/lib/auth"),
+        ]);
         const session = await auth.api.getSession({ headers: req.headers });
 
         if (!session) {
@@ -86,7 +97,13 @@ export async function POST(req: Request) {
 
 // Remove an entry
 export async function DELETE(req: Request) {
+    if (!env.DATABASE_URL) return backendUnavailable();
+
     try {
+        const [{ default: prisma }, { auth }] = await Promise.all([
+            import("@/lib/prisma"),
+            import("@/lib/auth"),
+        ]);
         const session = await auth.api.getSession({ headers: req.headers });
 
         if (!session || !("role" in session) || session.role === "GUEST") {
