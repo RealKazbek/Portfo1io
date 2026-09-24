@@ -6,6 +6,10 @@ export const cache = "no-cache"
 export const revalidate = 0
 
 export async function GET() {
+    if (!env.NEXT_PUBLIC_UMAMI_WEBSITE_ID || !env.UMAMI_API_KEY) {
+        return NextResponse.json({ success: false, message: "Umami is not configured" }, { status: 503 });
+    }
+
     const startAt = 1759820400000;
     const endAt = Date.now();
 

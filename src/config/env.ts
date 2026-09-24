@@ -8,16 +8,16 @@ const env = createEnv({
    */
   server: {
     NODE_ENV: z.enum(["development", "production"]).default("development"),
-    DATABASE_URL: z.url(),
     NEXT_RUNTIME: z.enum(["nodejs", "edge"]).default("nodejs"),
-    GITHUB_CLIENT_ID: z.string().min(1),
-    GITHUB_CLIENT_SECRET: z.string().min(1),
-    GOOGLE_CLIENT_ID: z.string().min(1),
-    GOOGLE_CLIENT_SECRET: z.string().min(1),
-    BETTER_AUTH_SECRET: z.string().min(1),
+    DATABASE_URL: z.url().optional(),
+    GITHUB_CLIENT_ID: z.string().min(1).optional(),
+    GITHUB_CLIENT_SECRET: z.string().min(1).optional(),
+    GOOGLE_CLIENT_ID: z.string().min(1).optional(),
+    GOOGLE_CLIENT_SECRET: z.string().min(1).optional(),
+    BETTER_AUTH_SECRET: z.string().min(1).optional(),
     BETTER_AUTH_URL: z.url().default("http://localhost:3000"),
-    UMAMI_API_KEY: z.string().min(1),
-    GITHUB_TOKEN: z.string().min(1)
+    UMAMI_API_KEY: z.string().min(1).optional(),
+    GITHUB_TOKEN: z.string().min(1).optional(),
   },
   /*
    * Environment variables available on the client (and server).
@@ -28,7 +28,7 @@ const env = createEnv({
     NEXT_PUBLIC_APP_URL: z.url().default("http://localhost:3000"),
     NEXT_PUBLIC_GITHUB_USERNAME: z.string().min(1),
     NEXT_PUBLIC_AVAILABLE_STATUS: z.coerce.boolean(),
-    NEXT_PUBLIC_UMAMI_WEBSITE_ID: z.string().min(1)
+    NEXT_PUBLIC_UMAMI_WEBSITE_ID: z.string().min(1).optional(),
   },
 
   /*
@@ -52,9 +52,7 @@ const env = createEnv({
     UMAMI_API_KEY: process.env.UMAMI_API_KEY,
     NEXT_PUBLIC_AVAILABLE_STATUS: process.env.NEXT_PUBLIC_AVAILABLE_STATUS,
     NEXT_PUBLIC_UMAMI_WEBSITE_ID: process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID,
-    GITHUB_TOKEN: process.env.GITHUB_TOKEN
-
-
+    GITHUB_TOKEN: process.env.GITHUB_TOKEN,
   },
 
   emptyStringAsUndefined: true,

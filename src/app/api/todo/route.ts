@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
         });
 
 
-        if (!session || session.role !== "AUTHOR") {
+        if (!session || !("role" in session) || session.role !== "AUTHOR") {
             return NextResponse.json({ success: false, message: "Unauthorized" }, { status: 401 });
         }
 
@@ -66,7 +66,7 @@ export async function PATCH(req: NextRequest) {
         });
 
 
-        if (!session || session.role !== "AUTHOR") {
+        if (!session || !("role" in session) || session.role !== "AUTHOR") {
             return NextResponse.json({ success: false, message: "Unauthorized" }, { status: 401 });
         }
 
@@ -103,7 +103,7 @@ export async function DELETE(req: NextRequest) {
         });
 
 
-        if (!session || session.role !== "AUTHOR") {
+        if (!session || !("role" in session) || session.role !== "AUTHOR") {
             return NextResponse.json({ success: false, message: "Unauthorized" }, { status: 401 });
         }
 

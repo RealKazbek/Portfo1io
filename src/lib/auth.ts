@@ -11,7 +11,7 @@ const baseUrl = env.BETTER_AUTH_URL
 
 export const auth = betterAuth({
     baseURL: baseUrl,
-    secret: process.env.BETTER_AUTH_SECRET!, // generate with CLI: npx @better-auth/cli secret
+    secret: env.BETTER_AUTH_SECRET ?? "local-development-secret",
     trustedOrigins: ["http://localhost:3000", baseUrl],
 
     database: prismaAdapter(prisma, {
@@ -24,17 +24,16 @@ export const auth = betterAuth({
             maxAge: 5 * 60, // Cache duration in seconds
         },
         expiresIn: 30 * 24 * 60 * 60, // 30 days in seconds
-        rolling: true,                // extend on activity
     },
 
     socialProviders: {
         github: {
-            clientId: env.GITHUB_CLIENT_ID,
-            clientSecret: env.GITHUB_CLIENT_SECRET,
+            clientId: env.GITHUB_CLIENT_ID ?? "",
+            clientSecret: env.GITHUB_CLIENT_SECRET ?? "",
         },
         google: {
-            clientId: env.GOOGLE_CLIENT_ID,
-            clientSecret: env.GOOGLE_CLIENT_SECRET,
+            clientId: env.GOOGLE_CLIENT_ID ?? "",
+            clientSecret: env.GOOGLE_CLIENT_SECRET ?? "",
         }
     },
 

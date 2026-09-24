@@ -57,11 +57,13 @@ export default function RootLayout({
           </MotionConfigWrapper>
         </Providers>
 
-        <Script
-          defer
-          src="https://cloud.umami.is/script.js"
-          data-website-id={env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
-        />
+        {env.NEXT_PUBLIC_UMAMI_WEBSITE_ID ? (
+          <Script
+            defer
+            src="https://cloud.umami.is/script.js"
+            data-website-id={env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+          />
+        ) : null}
       </body>
     </html>
   );

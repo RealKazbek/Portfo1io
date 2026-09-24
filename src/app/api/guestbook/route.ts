@@ -89,7 +89,7 @@ export async function DELETE(req: Request) {
     try {
         const session = await auth.api.getSession({ headers: req.headers });
 
-        if (!session || session.role === "GUEST") {
+        if (!session || !("role" in session) || session.role === "GUEST") {
             return NextResponse.json({ success: false, message: "Unauthorized" }, { status: 401 });
         }
 

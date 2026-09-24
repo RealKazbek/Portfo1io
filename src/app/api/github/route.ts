@@ -256,6 +256,10 @@ const GITHUB_GRAPHQL_QUERY = `
 
 
 export async function GET() {
+  if (!env.GITHUB_TOKEN) {
+    return NextResponse.json({ success: false, message: "GitHub stats are not configured" }, { status: 503 });
+  }
+
   try {
 
     const response = await axios.post('https://api.github.com/graphql', {

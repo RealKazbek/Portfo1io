@@ -58,15 +58,16 @@ export const Guestbook = () => {
   const [error, setError] = useState<string | null>(null);
 
   const { data: session, isPending } = authClient.useSession();
+  const sessionWithRole = session as typeof session & { role?: "AUTHOR" | "GUEST" };
 
   const isLoggedIn = !!session?.user;
-  const isAuthor = session?.role === "AUTHOR";
+  const isAuthor = sessionWithRole?.role === "AUTHOR";
 
   const { data: entries, isLoading } = useGuestbookEntries();
 
   const userWithRole = {
     ...(session?.user as User),
-    role: session?.role,
+    role: sessionWithRole?.role,
   };
 
   const createEntry = useCreateGuestbookEntry(userWithRole);
