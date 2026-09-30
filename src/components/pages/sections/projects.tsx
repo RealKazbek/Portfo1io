@@ -12,11 +12,56 @@ import { motion } from "motion/react";
 const Projects = () => {
   const projects = [
     {
+      title: "MG Drive",
+      description: "Interactive 3D automotive experience built with React, Three.js and React Three Fiber. Includes configurable vehicles, camera controls, lighting, materials and animated vehicle parts.",
+      tags: ["React", "Three.js", "React Three Fiber", "Vite", "Zustand"],
+      github: "https://github.com/RealKazbek/Car",
+      live: "https://realkazbek.github.io/Car/",
+      image: null,
+      imageObjectPosition: null,
+      date: "Completed",
+      status: "completed",
+    },
+    {
+      title: "TerraCon",
+      description: "Commercial website and Telegram communication system for TerraCon. Built as a real client-facing project with production deployment and direct Telegram integration.",
+      tags: ["Web Development", "Telegram", "Production Deployment"],
+      github: "https://terracon.kz",
+      live: "https://t.me/terracon_manager_bot",
+      image: null,
+      imageObjectPosition: null,
+      date: "Completed",
+      status: "completed",
+    },
+    {
+      title: "Telegram Assistant",
+      description: "Personal Telegram assistant that handles incoming messages, keeps conversation context, supports delayed smart replies and works in Russian, Kazakh and English.",
+      tags: ["Python", "Telegram API", "Automation", "AI"],
+      github: "https://t.me/RealKazbekBot",
+      live: "https://t.me/RealKazbek",
+      image: "/projects/assistant.jpeg",
+      imageObjectPosition: "center 28%",
+      date: "Completed",
+      status: "completed",
+    },
+    {
+      title: "Personal Portfolio",
+      description: "My personal developer portfolio showcasing commercial projects, experiments, technologies and contact information.",
+      tags: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+      github: "https://github.com/RealKazbek/Portfo1io",
+      live: "https://realkazbek.site",
+      image: null,
+      imageObjectPosition: null,
+      date: "Completed",
+      status: "completed",
+    },
+    {
       title: "Pixel Lane",
       description: "Smart-city traffic management and road infrastructure modeling platform with a 2D city editor, traffic simulation, lane modeling, intersections, and digital twin concepts.",
       tags: ["Next.js", "FastAPI", "MapLibre"],
       github: "https://github.com/RealKazbek/Pixel-Lane",
       image: "/projects/pixel-lane.png",
+      imageObjectPosition: null,
       live: null,
       date: "In Development",
       status: "In Development",
@@ -27,29 +72,10 @@ const Projects = () => {
       tags: ["Next.js", "FastAPI", "PostgreSQL"],
       github: "https://github.com/RealKazbek/NextTrade",
       image: "/projects/nexttrade.png",
+      imageObjectPosition: null,
       live: null,
       date: "In Development",
       status: "In Development",
-    },
-    {
-      title: "Business CRM",
-      description: "CRM system for managing leads, clients, tasks, statuses, and business workflows.",
-      tags: ["Next.js", "FastAPI", "PostgreSQL"],
-      github: null,
-      image: "/projects/crm.png",
-      live: null,
-      date: "Coming Soon",
-      status: "Coming Soon",
-    },
-    {
-      title: "Telegram Business System",
-      description: "Telegram bot integrated with a web admin panel for handling orders, notifications, and customer workflows.",
-      tags: ["Telegram Bot", "FastAPI", "PostgreSQL"],
-      github: null,
-      image: "/projects/telegram-business.png",
-      live: null,
-      date: "Coming Soon",
-      status: "Coming Soon",
     },
   ];
 
@@ -59,6 +85,20 @@ const Projects = () => {
     MapLibre: "bg-purple-500/10 text-purple-600 border-purple-500/30",
     PostgreSQL: "bg-cyan-500/10 text-cyan-600 border-cyan-500/30",
     "Telegram Bot": "bg-teal-500/10 text-teal-600 border-teal-500/30",
+    "Three.js": "bg-violet-500/10 text-violet-600 border-violet-500/30",
+    "React Three Fiber": "bg-violet-500/10 text-violet-600 border-violet-500/30",
+    Vite: "bg-purple-500/10 text-purple-600 border-purple-500/30",
+    Zustand: "bg-orange-500/10 text-orange-600 border-orange-500/30",
+    "Web Development": "bg-blue-500/10 text-blue-600 border-blue-500/30",
+    Telegram: "bg-teal-500/10 text-teal-600 border-teal-500/30",
+    "Production Deployment": "bg-emerald-500/10 text-emerald-600 border-emerald-500/30",
+    Python: "bg-yellow-500/10 text-yellow-600 border-yellow-500/30",
+    "Telegram API": "bg-teal-500/10 text-teal-600 border-teal-500/30",
+    Automation: "bg-cyan-500/10 text-cyan-600 border-cyan-500/30",
+    AI: "bg-pink-500/10 text-pink-600 border-pink-500/30",
+    React: "bg-cyan-500/10 text-cyan-600 border-cyan-500/30",
+    TypeScript: "bg-blue-500/10 text-blue-600 border-blue-500/30",
+    "Tailwind CSS": "bg-sky-500/10 text-sky-600 border-sky-500/30",
   };
 
   return (
@@ -93,11 +133,18 @@ const Projects = () => {
                     {/* Main image */}
                     <div className="bg-background relative overflow-hidden border-2">
                       <div className="relative aspect-video overflow-hidden">
-                        <img
-                          src={project.image}
-                          alt={project.title}
-                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        />
+                        {project.image ? (
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            style={{ objectPosition: project.imageObjectPosition ?? "center" }}
+                          />
+                        ) : (
+                          <div className="bg-muted/40 text-muted-foreground flex h-full w-full items-center justify-center p-8 text-center font-mono text-xs uppercase tracking-[0.2em] transition-transform duration-700 group-hover:scale-110">
+                            {project.title}
+                          </div>
+                        )}
 
                         {/* Overlay gradient on hover */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -174,7 +221,7 @@ const Projects = () => {
                       rel="noopener noreferrer"
                     >
                       <Github className="mr-2 h-4 w-4" />
-                      View Code
+                      {project.title === "TerraCon" || project.title === "Telegram Assistant" ? "Open" : "View Code"}
                       <ArrowUpRight className="ml-1 h-3 w-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
                     </a>
                   </Button>
@@ -192,7 +239,7 @@ const Projects = () => {
                       rel="noopener noreferrer"
                     >
                       <ExternalLink className="mr-2 h-4 w-4" />
-                      Live Demo
+                      {project.title === "TerraCon" || project.title === "Telegram Assistant" ? "Secondary" : "Live Demo"}
                       <ArrowUpRight className="ml-1 h-3 w-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
                     </a>
                   </Button>
