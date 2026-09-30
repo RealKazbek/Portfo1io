@@ -211,31 +211,7 @@ const MainScreen: React.FC<{
                   <path d="M10 6V5H9V4H7V6H8V7H9V8H10V9H11V10H12V12H11V13H10V14H9V15H8V16H7V18H9V17H10V16H11V15H12V14H13V13H14V12H15V10H14V9H13V8H12V7H11V6" />
                 </motion.svg>
               )}
-              {item === "resume" ? (
-                <span className="inline-flex items-center gap-2">
-                  <a
-                    href={RESUME_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Open Resume in a new tab"
-                    className="underline-offset-2 hover:underline focus-visible:outline-1 focus-visible:outline-offset-2"
-                    onClick={(event) => event.stopPropagation()}
-                  >
-                    Resume
-                  </a>
-                  <a
-                    href={RESUME_URL}
-                    download
-                    aria-label="Download Resume PDF"
-                    className="text-[0.65rem] opacity-60 underline-offset-2 transition-opacity hover:opacity-100 hover:underline focus-visible:outline-1 focus-visible:outline-offset-2"
-                    onClick={(event) => event.stopPropagation()}
-                  >
-                    Download
-                  </a>
-                </span>
-              ) : (
-                <span>{item}</span>
-              )}
+              <span>{item}</span>
             </span>
           ))}
         </div>
@@ -391,7 +367,7 @@ const HomePage = () => {
             // setCurrentConsoleNavigation("portfolio")
           },
           resume: () => {
-            window.open(RESUME_URL, "_blank");
+            window.open(RESUME_URL, "_blank", "noopener,noreferrer");
           },
         };
 
