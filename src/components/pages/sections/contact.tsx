@@ -198,8 +198,8 @@ export default function Contact() {
         </div>
       </div>
       <div className="relative z-10 mx-auto mt-8 flex max-w-5xl flex-wrap items-center justify-center gap-4 text-sm">
-        <a className="border px-4 py-2 hover:bg-muted" href={siteConfig.telegram} target="_blank" rel="noreferrer">Contact me on Telegram</a>
-        <a className="border px-4 py-2 hover:bg-muted" href={siteConfig.github} target="_blank" rel="noreferrer">GitHub</a>
+        <a className="border px-4 py-2 hover:bg-muted" href={siteConfig.telegram} target="_blank" rel="noopener noreferrer">Contact me on Telegram</a>
+        <a className="border px-4 py-2 hover:bg-muted" href={siteConfig.github} target="_blank" rel="noopener noreferrer">GitHub</a>
         <a className="border px-4 py-2 hover:bg-muted" href={`mailto:${siteConfig.email}`}>Email</a>
       </div>
     </SectionHeading>
