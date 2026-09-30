@@ -17,8 +17,8 @@ const Projects = () => {
       tags: ["React", "Three.js", "React Three Fiber", "Vite", "Zustand"],
       github: "https://github.com/RealKazbek/Car",
       live: "https://realkazbek.github.io/Car/",
-      image: null,
-      imageObjectPosition: null,
+      image: "/projects/car.png",
+      imageMode: "landscape",
       date: "Completed",
       status: "completed",
     },
@@ -28,8 +28,8 @@ const Projects = () => {
       tags: ["Web Development", "Telegram", "Production Deployment"],
       github: "https://terracon.kz",
       live: "https://t.me/terracon_manager_bot",
-      image: null,
-      imageObjectPosition: null,
+      image: "/projects/terracon.png",
+      imageMode: "landscape",
       date: "Completed",
       status: "completed",
     },
@@ -40,7 +40,7 @@ const Projects = () => {
       github: "https://t.me/RealKazbekBot",
       live: "https://t.me/RealKazbek",
       image: "/projects/assistant.jpeg",
-      imageObjectPosition: "center 28%",
+      imageMode: "portrait",
       date: "Completed",
       status: "completed",
     },
@@ -50,41 +50,15 @@ const Projects = () => {
       tags: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
       github: "https://github.com/RealKazbek/Portfo1io",
       live: "https://realkazbek.site",
-      image: null,
-      imageObjectPosition: null,
+      image: "/projects/portfolio.png",
+      imageMode: "landscape",
       date: "Completed",
       status: "completed",
-    },
-    {
-      title: "Pixel Lane",
-      description: "Smart-city traffic management and road infrastructure modeling platform with a 2D city editor, traffic simulation, lane modeling, intersections, and digital twin concepts.",
-      tags: ["Next.js", "FastAPI", "MapLibre"],
-      github: "https://github.com/RealKazbek/Pixel-Lane",
-      image: "/projects/pixel-lane.png",
-      imageObjectPosition: null,
-      live: null,
-      date: "In Development",
-      status: "In Development",
-    },
-    {
-      title: "NextTrade",
-      description: "Full-stack trading platform with authentication, backend APIs, PostgreSQL, and a modern web interface.",
-      tags: ["Next.js", "FastAPI", "PostgreSQL"],
-      github: "https://github.com/RealKazbek/NextTrade",
-      image: "/projects/nexttrade.png",
-      imageObjectPosition: null,
-      live: null,
-      date: "In Development",
-      status: "In Development",
     },
   ];
 
   const tagColors = {
     "Next.js": "bg-blue-500/10 text-blue-600 border-blue-500/30",
-    FastAPI: "bg-emerald-500/10 text-emerald-600 border-emerald-500/30",
-    MapLibre: "bg-purple-500/10 text-purple-600 border-purple-500/30",
-    PostgreSQL: "bg-cyan-500/10 text-cyan-600 border-cyan-500/30",
-    "Telegram Bot": "bg-teal-500/10 text-teal-600 border-teal-500/30",
     "Three.js": "bg-violet-500/10 text-violet-600 border-violet-500/30",
     "React Three Fiber": "bg-violet-500/10 text-violet-600 border-violet-500/30",
     Vite: "bg-purple-500/10 text-purple-600 border-purple-500/30",
@@ -134,12 +108,23 @@ const Projects = () => {
                     <div className="bg-background relative overflow-hidden border-2">
                       <div className="relative aspect-video overflow-hidden">
                         {project.image ? (
-                          <img
-                            src={project.image}
-                            alt={project.title}
-                            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                            style={{ objectPosition: project.imageObjectPosition ?? "center" }}
-                          />
+                          project.imageMode === "portrait" ? (
+                            <div className="bg-[#0b1726] relative isolate flex h-full w-full items-center justify-center overflow-hidden">
+                              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(42,171,238,0.24),transparent_58%)]" />
+                              <div className="absolute inset-0 opacity-30 [background-image:linear-gradient(rgba(42,171,238,0.14)_1px,transparent_1px),linear-gradient(90deg,rgba(42,171,238,0.14)_1px,transparent_1px)] [background-size:32px_32px]" />
+                              <img
+                                src={project.image}
+                                alt={project.title}
+                                className="relative z-10 h-full max-w-full object-contain transition-transform duration-700 group-hover:scale-105"
+                              />
+                            </div>
+                          ) : (
+                            <img
+                              src={project.image}
+                              alt={project.title}
+                              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            />
+                          )
                         ) : (
                           <div className="bg-muted/40 text-muted-foreground flex h-full w-full items-center justify-center p-8 text-center font-mono text-xs uppercase tracking-[0.2em] transition-transform duration-700 group-hover:scale-110">
                             {project.title}
